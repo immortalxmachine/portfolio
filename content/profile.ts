@@ -162,7 +162,7 @@ export const profile = {
     {
       role: "President, SAP Tech Club",
       org: "SRM IST",
-      period: "TODO: dates", // TODO: confirm start/end dates for SAP Tech Club presidency
+      period: "Feb 2026 – Oct 2026",
       description:
         "Lead the SAP Tech Club, started in collaboration with SAP.",
       kind: "leadership",
