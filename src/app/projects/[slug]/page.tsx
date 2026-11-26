@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ExternalLink, Star } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, ExternalLink, Star } from "lucide-react";
 
 import { getProject, getProjects } from "@/lib/github";
+import { firstReadmeImage } from "@/lib/project-mapper";
 import { formatRelative } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -54,6 +55,8 @@ export default async function ProjectPage({
   const prev = idx > 0 ? all[idx - 1] : null;
   const next = idx >= 0 && idx < all.length - 1 ? all[idx + 1] : null;
 
+  const heroImage = firstReadmeImage(project.readme);
+
   return (
     <article className="container-page py-12 md:py-16">
       {/* Back link */}
@@ -69,6 +72,11 @@ export default async function ProjectPage({
       <header className="mt-6 border-b border-border pb-8">
         <div className="flex flex-wrap items-center gap-3">
           <Badge variant="muted">{project.category}</Badge>
+          {project.languages.length > 0 && (
+            <span className="font-mono text-xs text-muted-foreground">
+              {project.languages.slice(0, 4).join(" · ")}
+            </span>
+          )}
           {project.updatedAt && (
             <span className="font-mono text-xs text-muted-foreground">
               Updated {formatRelative(project.updatedAt)}
@@ -87,17 +95,6 @@ export default async function ProjectPage({
           <p className="mt-2 max-w-2xl text-pretty text-lg text-muted-foreground">
             {project.tagline}
           </p>
-        )}
-
-        {project.metrics.length > 0 && (
-          <div className="mt-5 flex flex-wrap gap-2">
-            {project.metrics.map((m) => (
-              <span key={m.label} className="rounded-md border border-border px-3 py-1.5 text-sm">
-                <span className="font-semibold">{m.value}</span>{" "}
-                <span className="text-muted-foreground">{m.label}</span>
-              </span>
-            ))}
-          </div>
         )}
 
         <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -128,25 +125,104 @@ export default async function ProjectPage({
         )}
       </header>
 
-      {/* README */}
-      <div className="mt-8">
-        {project.readme ? (
-          <Markdown>{project.readme}</Markdown>
-        ) : (
-          <p className="text-muted-foreground">
-            No README available.{" "}
-            <a
-              href={project.repoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-4 hover:text-foreground"
-            >
-              View the repository on GitHub
-            </a>
-            .
-          </p>
-        )}
-      </div>
+      {/* Metrics as stat cards */}
+      {project.metrics.length > 0 && (
+        <section className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+          {project.metrics.map((m) => (
+            <div key={m.label} className="rounded-xl border border-border bg-card p-4">
+              <div className="text-2xl font-bold tracking-tight">{m.value}</div>
+              <div className="mt-1 text-sm text-muted-foreground">{m.label}</div>
+            </div>
+          ))}
+        </section>
+      )}
+
+      {/* Hero screenshot pulled from the README */}
+      {heroImage && (
+        <figure className="mt-8 flex justify-center overflow-hidden rounded-xl border border-border bg-muted/30 p-3">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={heroImage}
+            alt={`${project.title} — preview`}
+            className="max-h-[460px] w-auto max-w-full rounded-lg object-contain"
+            loading="lazy"
+          />
+        </figure>
+      )}
+
+      {/* Highlights */}
+      {project.highlights.length > 0 && (
+        <section className="mt-10">
+          <h2 className="text-xl font-semibold tracking-tight">Highlights</h2>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+            {project.highlights.map((h) => (
+              <li
+                key={h}
+                className="flex gap-3 rounded-xl border border-border bg-card p-4"
+              >
+                <Check className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden />
+                <span className="text-sm leading-relaxed text-muted-foreground">{h}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {/* Tech stack */}
+      {(project.languages.length > 0 || project.techTopics.length > 0) && (
+        <section className="mt-10">
+          <h2 className="text-xl font-semibold tracking-tight">Tech stack</h2>
+          {project.languages.length > 0 && (
+            <div className="mt-4">
+              <div className="font-mono text-xs uppercase tracking-wide text-muted-foreground">
+                Languages
+              </div>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {project.languages.map((l) => (
+                  <Badge key={l}>{l}</Badge>
+                ))}
+              </div>
+            </div>
+          )}
+          {project.techTopics.length > 0 && (
+            <div className="mt-4">
+              <div className="font-mono text-xs uppercase tracking-wide text-muted-foreground">
+                Tools &amp; frameworks
+              </div>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {project.techTopics.map((t) => (
+                  <Badge key={t} size="sm">
+                    {t}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* Full write-up (README) */}
+      <section className="mt-10 border-t border-border pt-8">
+        <h2 className="text-xl font-semibold tracking-tight">Project details</h2>
+        <div className="mt-4">
+          {project.readme ? (
+            <Markdown>{project.readme}</Markdown>
+          ) : (
+            <p className="text-muted-foreground">
+              No README available.{" "}
+              <a
+                href={project.repoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-4 hover:text-foreground"
+              >
+                View the repository on GitHub
+              </a>
+              .
+            </p>
+          )}
+        </div>
+      </section>
 
       {/* Prev / next */}
       {(prev || next) && (

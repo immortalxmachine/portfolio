@@ -139,16 +139,37 @@ export const profile = {
   ] satisfies SkillGroup[],
 
   research: {
+    slug: "plant-disease-detection-multimodal",
     title:
       "Plant Disease Detection Using Multi-Modal Deep Learning: CNN, Deep Neural Networks, and Environmental Insights",
     venue: "Dept. of CSE, MNNIT Allahabad, Prayagraj",
     date: "Sep 2026",
+    field: "Multi-modal Deep Learning",
     summary:
       "Combines CNN leaf-image features with environmental data in a multi-modal deep neural network to classify crop diseases.",
+    abstract:
+      "Image-only crop-disease classifiers ignore the growing conditions that drive many diseases. This work studies whether pairing a leaf photo with its environmental context improves recognition. A convolutional branch extracts visual features from the leaf image while a dense branch encodes structured environmental signals; the two are fused inside a single deep neural network that predicts the disease class. The model is served as an interactive Hugging Face Spaces demo so a leaf image plus environmental inputs can be classified live.",
+    highlights: [
+      "Multi-modal architecture: a CNN image branch and a dense environmental-feature branch are fused in one deep neural network, rather than classifying from the leaf image alone.",
+      "Studies the added value of environmental context (the growing conditions that drive many crop diseases) on top of standard image features.",
+      "Deployed as a live, interactive demo on Hugging Face Spaces for real-time inference from a leaf photo and environmental inputs.",
+      "Built with PyTorch and a transfer-learning CNN backbone for the vision branch.",
+    ],
+    stack: [
+      "PyTorch",
+      "CNNs",
+      "Transfer Learning",
+      "Multi-modal Fusion",
+      "Deep Neural Networks",
+      "Hugging Face Spaces",
+      "Python",
+    ],
     paperUrl:
       "https://drive.google.com/file/d/1wuB-3ly9aK8pTdfsaAZwiTh0_Zzl3_jy/view?usp=sharing",
     demoUrl:
       "https://huggingface.co/spaces/immortalxmach/plant-disease-detection",
+    /** Embeddable HF Space URL (direct iframe host for the Space above). */
+    embedUrl: "https://immortalxmach-plant-disease-detection.hf.space",
   },
 
   achievements: [

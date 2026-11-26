@@ -7,8 +7,7 @@ with no code changes and no redeploy.
 **Live:** https://portfolio-khaki-nine-26.vercel.app
 **Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Framer Motion · Vercel
 
-<!-- TODO: add a screenshot at docs/screenshot.png and uncomment -->
-<!-- ![Portfolio screenshot](docs/screenshot.png) -->
+![Portfolio screenshot](docs/screenshot.png)
 
 ---
 

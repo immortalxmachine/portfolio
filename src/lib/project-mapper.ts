@@ -108,6 +108,25 @@ export function rewriteReadmeImages(
   return out;
 }
 
+/**
+ * Pull the first image URL out of a (already absolute-rewritten) README so the
+ * detail page can show it as a hero preview. Looks at markdown `![](url)` and
+ * HTML `<img src="url">`, skips tiny shield/badge images, returns null if none.
+ */
+export function firstReadmeImage(md: string | null): string | null {
+  if (!md) return null;
+  const urls: string[] = [];
+  const mdImg = /!\[[^\]]*\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g;
+  const htmlImg = /<img\b[^>]*\bsrc=["']([^"']+)["']/gi;
+  for (const re of [mdImg, htmlImg]) {
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(md)) !== null) urls.push(m[1]);
+  }
+  const isBadge = (u: string) =>
+    /shields\.io|badge|\.svg($|\?)|githubusercontent\.com\/.*\/actions\//i.test(u);
+  return urls.find((u) => /^https?:\/\//i.test(u) && !isBadge(u)) ?? null;
+}
+
 /** Deterministic sort: featured first, then explicit order, then recency. */
 export function sortProjects(projects: Project[]): Project[] {
   return [...projects].sort((a, b) => {
