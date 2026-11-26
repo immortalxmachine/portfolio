@@ -214,7 +214,7 @@ export function WorkExplorer({ projects }: { projects: Project[] }) {
                       onClick={() => toggleTech(t)}
                       aria-pressed={active}
                       className={cn(
-                        "rounded-full border px-2.5 py-0.5 font-mono text-xs transition-colors",
+                        "rounded-full border px-2.5 py-1 font-mono text-xs transition-colors",
                         active
                           ? "border-foreground bg-foreground text-background"
                           : "border-border text-muted-foreground hover:border-foreground/40",
@@ -228,7 +228,7 @@ export function WorkExplorer({ projects }: { projects: Project[] }) {
                   <button
                     type="button"
                     onClick={clearFilters}
-                    className="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs text-muted-foreground hover:text-foreground"
+                    className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs text-muted-foreground hover:text-foreground"
                   >
                     <X className="size-3" aria-hidden />
                     Clear

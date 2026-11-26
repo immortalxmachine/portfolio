@@ -47,11 +47,7 @@ export function SiteNav() {
         aria-label="Primary"
       >
         {/* Brand */}
-        <Link
-          href="/"
-          className="flex items-center gap-2.5"
-          aria-label={`${profile.name} — home`}
-        >
+        <Link href="/" className="flex items-center gap-2.5">
           <span className="flex h-9 w-9 items-center justify-center rounded-md bg-foreground font-mono text-sm font-bold text-background">
             {profile.initials}
           </span>
