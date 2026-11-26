@@ -4,7 +4,7 @@ An interactive, **self-updating** developer portfolio. Projects are pulled live
 from GitHub: any repo tagged with the `portfolio` topic appears automatically,
 with no code changes and no redeploy.
 
-**Live:** _(added after the first Vercel deploy)_
+**Live:** https://portfolio-khaki-nine-26.vercel.app
 **Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Framer Motion · Vercel
 
 <!-- TODO: add a screenshot at docs/screenshot.png and uncomment -->
