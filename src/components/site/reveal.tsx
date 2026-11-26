@@ -52,7 +52,7 @@ export function Reveal({
       ref={ref as React.Ref<HTMLElement>}
       style={reduce ? undefined : { transitionDelay: `${delay}s` }}
       className={cn(
-        "motion-safe:transition-all motion-safe:duration-500 motion-safe:ease-out will-change-[opacity,transform]",
+        "motion-safe:transition-all motion-safe:duration-500 motion-safe:ease-out",
         visible ? "opacity-100" : "opacity-0 motion-safe:translate-y-4",
         className,
       )}
