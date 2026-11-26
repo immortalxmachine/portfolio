@@ -1,0 +1,22 @@
+# Drop this into any project repo at: .github/workflows/notify-portfolio.yml
+# Requires two repo secrets:
+#   PORTFOLIO_REVALIDATE_URL  e.g. https://your-site.vercel.app/api/revalidate
+#   REVALIDATE_SECRET         same value as in the portfolio's Vercel env vars
+name: Notify portfolio
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping portfolio revalidation
+        run: |
+          if [ -z "${{ secrets.PORTFOLIO_REVALIDATE_URL }}" ] || [ -z "${{ secrets.REVALIDATE_SECRET }}" ]; then
+            echo "Secrets not set — skipping."
+            exit 0
+          fi
+          curl -fsS -X POST "${{ secrets.PORTFOLIO_REVALIDATE_URL }}?secret=${{ secrets.REVALIDATE_SECRET }}"
+          echo "Portfolio notified."
