@@ -1,12 +1,16 @@
 "use client";
 
 import * as React from "react";
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+
+import { cn } from "@/lib/utils";
+import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
+
+type RevealTag = "div" | "section" | "li" | "article";
 
 /**
- * Scroll-reveal wrapper: fades/slides children in when they enter the viewport.
- * Honours `prefers-reduced-motion` by rendering content immediately with no
- * transform, so motion never blocks or hides content.
+ * Scroll-reveal wrapper using IntersectionObserver + CSS transitions (no
+ * animation library). Fades/slides children in once on enter; honours
+ * `prefers-reduced-motion` by showing content immediately with no transform.
  */
 export function Reveal({
   children,
@@ -17,29 +21,43 @@ export function Reveal({
   children: React.ReactNode;
   delay?: number;
   className?: string;
-  as?: "div" | "section" | "li" | "article";
+  as?: RevealTag;
 }) {
-  const reduce = useReducedMotion();
-  const MotionTag = motion[as] as typeof motion.div;
+  const ref = React.useRef<HTMLElement | null>(null);
+  const [shown, setShown] = React.useState(false);
+  const reduce = usePrefersReducedMotion();
 
-  const variants: Variants = {
-    hidden: { opacity: 0, y: reduce ? 0 : 16 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: reduce ? 0 : 0.5, delay: reduce ? 0 : delay, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
+  React.useEffect(() => {
+    if (reduce) return;
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setShown(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -80px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [reduce]);
+
+  const visible = reduce || shown;
+  const Tag = as as React.ElementType;
 
   return (
-    <MotionTag
-      className={className}
-      variants={variants}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
+    <Tag
+      ref={ref as React.Ref<HTMLElement>}
+      style={reduce ? undefined : { transitionDelay: `${delay}s` }}
+      className={cn(
+        "motion-safe:transition-all motion-safe:duration-500 motion-safe:ease-out will-change-[opacity,transform]",
+        visible ? "opacity-100" : "opacity-0 motion-safe:translate-y-4",
+        className,
+      )}
     >
       {children}
-    </MotionTag>
+    </Tag>
   );
 }

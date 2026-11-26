@@ -85,7 +85,7 @@ export function SiteNav() {
           <button
             type="button"
             onClick={openPalette}
-            aria-label="Open command menu"
+            aria-label="Open command menu (K)"
             className="hidden items-center gap-2 rounded-md border border-border px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground sm:flex"
           >
             <CommandIcon className="size-3.5" aria-hidden />

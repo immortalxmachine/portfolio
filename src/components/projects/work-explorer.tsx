@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Search, X } from "lucide-react";
 
 import { profile } from "../../../content/profile";
@@ -20,7 +19,6 @@ const intersects = (a: string[], b: string[]) => a.some((x) => b.includes(x));
  * grid by that skill's topics.
  */
 export function WorkExplorer({ projects }: { projects: Project[] }) {
-  const reduce = useReducedMotion();
   const [hoveredTopics, setHoveredTopics] = React.useState<string[]>([]);
   const [category, setCategory] = React.useState<CategoryFilter>("All");
   const [query, setQuery] = React.useState("");
@@ -252,22 +250,11 @@ export function WorkExplorer({ projects }: { projects: Project[] }) {
               </button>
             </div>
           ) : (
-            <motion.div layout className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              <AnimatePresence mode="popLayout">
-                {visible.map((p) => (
-                  <motion.div
-                    key={p.slug}
-                    layout={!reduce}
-                    initial={reduce ? false : { opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={reduce ? undefined : { opacity: 0, scale: 0.98 }}
-                    transition={{ duration: 0.25 }}
-                  >
-                    <ProjectCard project={p} state={cardState(p)} />
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </motion.div>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {visible.map((p) => (
+                <ProjectCard key={p.slug} project={p} state={cardState(p)} />
+              ))}
+            </div>
           )}
         </div>
       </section>

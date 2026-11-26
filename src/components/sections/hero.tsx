@@ -3,9 +3,9 @@
 import * as React from "react";
 import Image from "next/image";
 import { ArrowDown, Download } from "lucide-react";
-import { useReducedMotion } from "framer-motion";
 
 import { profile } from "../../../content/profile";
+import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
@@ -14,7 +14,7 @@ import { GithubIcon, LinkedinIcon } from "@/components/icons";
  *  prefers-reduced-motion (no per-character typing). All state updates happen
  *  inside timers (never synchronously in the effect body). */
 function useTypewriter(phrases: string[]) {
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
   const [index, setIndex] = React.useState(0);
   const [typed, setTyped] = React.useState("");
   const [deleting, setDeleting] = React.useState(false);
