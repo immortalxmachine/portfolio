@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import { ArrowDown, Download } from "lucide-react";
 import { useReducedMotion } from "framer-motion";
 
@@ -64,9 +63,6 @@ function Monogram() {
 
 export function Hero() {
   const { text, reduce } = useTypewriter([...profile.typewriter]);
-  // If /photo.jpg is missing (404), fall back to a monogram — no code change
-  // needed; dropping public/photo.jpg in makes the real photo appear.
-  const [photoOk, setPhotoOk] = React.useState(true);
 
   return (
     <section
@@ -151,22 +147,10 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right: photo / monogram */}
+        {/* Right: monogram mark */}
         <div className="mx-auto w-full max-w-xs md:max-w-none">
           <div className="relative aspect-square overflow-hidden rounded-2xl border border-border bg-muted shadow-sm">
-            {photoOk ? (
-              <Image
-                src="/photo.jpg"
-                alt={`Portrait of ${profile.name}`}
-                fill
-                priority
-                sizes="(max-width: 768px) 20rem, 24rem"
-                className="object-cover"
-                onError={() => setPhotoOk(false)}
-              />
-            ) : (
-              <Monogram />
-            )}
+            <Monogram />
           </div>
         </div>
       </div>
