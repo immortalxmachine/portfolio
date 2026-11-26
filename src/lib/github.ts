@@ -10,6 +10,7 @@ import {
   rewriteReadmeImages,
   sortProjects,
 } from "./project-mapper";
+import { PROJECTS_TAG } from "./constants";
 import { type GitHubRepo, type Project } from "./types";
 
 /**
@@ -23,7 +24,7 @@ import { type GitHubRepo, type Project } from "./types";
  * updates. If GitHub is unreachable we fall back to the committed snapshot in
  * `content/projects.fallback.json` so the site never breaks.
  */
-export const PROJECTS_TAG = "projects";
+export { PROJECTS_TAG };
 const GH_USER = profile.links.githubUser;
 const REVALIDATE_SECONDS = 3600;
 
