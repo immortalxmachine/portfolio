@@ -1,0 +1,84 @@
+[
+  {
+    "slug": "parcelflow",
+    "name": "parcelflow",
+    "title": "parcelflow",
+    "tagline": "Cloud ELT pipeline + parcel volume forecasting — Python, SQL, PostgreSQL, Azure Blob, SARIMA, Streamlit",
+    "category": "Data",
+    "description": "Cloud ELT pipeline + parcel volume forecasting — Python, SQL, PostgreSQL, Azure Blob, SARIMA, Streamlit",
+    "highlights": [
+      "Built an idempotent ELT pipeline ingesting 695K synthetic shipment rows across 731 daily partitions and 15 hubs into a PostgreSQL/SQLite star-schema warehouse.",
+      "Engineered a 14-day SARIMA volume forecaster that beat a seasonal-naive baseline by ~16% MAPE (14.1% vs 16.8%) via holdout back-testing.",
+      "Added a data-quality stage that quarantined 16,081 bad rows (2.3%) with reasons instead of dropping them, plus a run log for observability."
+    ],
+    "metrics": [
+      { "label": "Rows ingested", "value": "695K" },
+      { "label": "MAPE vs baseline", "value": "-16%" },
+      { "label": "Automated tests", "value": "21" }
+    ],
+    "techTopics": ["azure", "data-engineering", "docker", "elt", "etl", "forecasting", "logistics", "postgresql", "python", "sarima", "sql", "streamlit"],
+    "languages": ["Python", "Dockerfile"],
+    "stars": 0,
+    "updatedAt": "2026-11-25T23:59:03Z",
+    "featured": true,
+    "order": 2,
+    "repoUrl": "https://github.com/immortalxmachine/parcelflow",
+    "homepage": null,
+    "demoUrl": null,
+    "defaultBranch": "main",
+    "ownerAvatar": "https://avatars.githubusercontent.com/u/164671502?v=4",
+    "readme": null
+  },
+  {
+    "slug": "docutrack-ai",
+    "name": "docutrack-ai",
+    "title": "docutrack-ai",
+    "tagline": "RAG assistant for shipping & customs documents — LangChain, FAISS, FastAPI, PostgreSQL, Streamlit",
+    "category": "GenAI",
+    "description": "RAG assistant for shipping & customs documents — LangChain, FAISS, FastAPI, PostgreSQL, Streamlit",
+    "highlights": [
+      "Built a retrieval-augmented Q&A service (FastAPI, FAISS, sentence-transformers) over shipping and customs documents.",
+      "Engineered an LLM invoice-extraction endpoint parsing commercial-invoice PDFs into structured fields.",
+      "Added an anti-hallucination confidence guard and a switchable LLM backend."
+    ],
+    "metrics": [],
+    "techTopics": ["docker", "faiss", "fastapi", "gemini", "langchain", "llm", "postgresql", "python", "rag", "retrieval-augmented-generation", "sentence-transformers", "streamlit"],
+    "languages": ["Python", "Dockerfile"],
+    "stars": 0,
+    "updatedAt": "2026-11-25T23:19:04Z",
+    "featured": true,
+    "order": 1,
+    "repoUrl": "https://github.com/immortalxmachine/docutrack-ai",
+    "homepage": null,
+    "demoUrl": null,
+    "defaultBranch": "main",
+    "ownerAvatar": "https://avatars.githubusercontent.com/u/164671502?v=4",
+    "readme": null
+  },
+  {
+    "slug": "shipsense",
+    "name": "shipsense",
+    "title": "shipsense",
+    "tagline": "Parcel delivery ETA prediction & route optimization — Spring Boot, FastAPI, scikit-learn, React, PostgreSQL, Docker",
+    "category": "Software",
+    "description": "Parcel delivery ETA prediction & route optimization — Spring Boot, FastAPI, scikit-learn, React, PostgreSQL, Docker",
+    "highlights": [
+      "Designed a layered Spring Boot API (controller/service/repository, JPA, global error handling).",
+      "Engineered a Python ETL + training pipeline (50k synthetic rows cleaned to 49k) for ETA prediction.",
+      "Added Dijkstra-based route optimization with a React + TypeScript frontend."
+    ],
+    "metrics": [],
+    "techTopics": ["dijkstra", "docker", "fastapi", "java", "logistics", "machine-learning", "postgresql", "python", "react", "spring-boot", "typescript"],
+    "languages": ["Java", "Python", "TypeScript", "Dockerfile"],
+    "stars": 0,
+    "updatedAt": "2026-11-25T23:09:32Z",
+    "featured": true,
+    "order": 3,
+    "repoUrl": "https://github.com/immortalxmachine/shipsense",
+    "homepage": null,
+    "demoUrl": null,
+    "defaultBranch": "main",
+    "ownerAvatar": "https://avatars.githubusercontent.com/u/164671502?v=4",
+    "readme": null
+  }
+]

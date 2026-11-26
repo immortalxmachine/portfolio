@@ -1,0 +1,12 @@
+# Normalize line endings to LF in the repo so CI on Linux and local Windows agree.
+* text=auto eol=lf
+
+# Binary assets should never be normalized.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
