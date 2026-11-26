@@ -7,11 +7,15 @@ export function isValidSecret(
   provided: string | null | undefined,
   expected: string | undefined,
 ): boolean {
-  if (!expected || !provided) return false;
-  if (provided.length !== expected.length) return false;
+  // Trim so a stray trailing newline (common when setting env vars via CLI)
+  // or query whitespace doesn't cause a false mismatch.
+  const p = provided?.trim();
+  const e = expected?.trim();
+  if (!e || !p) return false;
+  if (p.length !== e.length) return false;
   let diff = 0;
-  for (let i = 0; i < expected.length; i++) {
-    diff |= provided.charCodeAt(i) ^ expected.charCodeAt(i);
+  for (let i = 0; i < e.length; i++) {
+    diff |= p.charCodeAt(i) ^ e.charCodeAt(i);
   }
   return diff === 0;
 }

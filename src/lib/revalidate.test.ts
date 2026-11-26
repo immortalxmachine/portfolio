@@ -15,6 +15,11 @@ describe("isValidSecret", () => {
     expect(isValidSecret("s3cret-long", "s3cret")).toBe(false);
   });
 
+  it("ignores surrounding whitespace / trailing newline", () => {
+    expect(isValidSecret("s3cret", "s3cret\n")).toBe(true);
+    expect(isValidSecret(" s3cret ", "s3cret")).toBe(true);
+  });
+
   it("fails closed when no secret is configured", () => {
     expect(isValidSecret("anything", undefined)).toBe(false);
     expect(isValidSecret("anything", "")).toBe(false);

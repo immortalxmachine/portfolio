@@ -113,5 +113,91 @@
     "defaultBranch": "main",
     "ownerAvatar": "https://avatars.githubusercontent.com/u/164671502?v=4",
     "readme": null
+  },
+  {
+    "slug": "hrflow",
+    "name": "hrflow",
+    "title": "HRFlow",
+    "tagline": "HRMS workflow engine with approvals, RBAC & audit trail",
+    "category": "Software",
+    "description": "HRMS workflow engine: configurable approval hierarchies, RBAC, audit trail, country leave rules, payroll webhook integration",
+    "highlights": [
+      "Spring Boot 3 HRMS engine with data-driven multi-level approval workflows across 3 request types, JWT auth and service-layer RBAC over 16 REST endpoints.",
+      "Append-only audit trail and a per-country leave-rule engine (India/UAE/Germany), covered by 27 Java tests on embedded Postgres plus 4 Python tests.",
+      "HMAC-SHA256 signed payroll webhooks with retries + delivery log, and an idempotent CSV employee importer with row-level validation."
+    ],
+    "metrics": [
+      { "label": "REST endpoints", "value": "16" },
+      { "label": "Automated tests", "value": "31" },
+      { "label": "Request types", "value": "3" }
+    ],
+    "techTopics": ["audit-log", "hr-tech", "hrms", "postgresql", "rbac", "spring-boot", "workflow-engine"],
+    "languages": ["Java", "TypeScript", "Python", "CSS"],
+    "stars": 0,
+    "updatedAt": "2026-11-26T02:37:31Z",
+    "featured": true,
+    "order": 5,
+    "repoUrl": "https://github.com/immortalxmachine/hrflow",
+    "homepage": null,
+    "demoUrl": null,
+    "defaultBranch": "main",
+    "ownerAvatar": "https://avatars.githubusercontent.com/u/164671502?v=4",
+    "readme": null
+  },
+  {
+    "slug": "peoplepulse",
+    "name": "peoplepulse",
+    "title": "PeoplePulse",
+    "tagline": "People-analytics MIS + guard-railed GenAI HR assistant",
+    "category": "GenAI",
+    "description": "People analytics MIS + guard-railed GenAI HR query assistant + n8n onboarding automation (synthetic HRIS data)",
+    "highlights": [
+      "People-analytics MIS on a PostgreSQL/SQLite star schema with 10 SQL models.",
+      "Guard-railed GenAI natural-language-to-SQL HR assistant (sqlglot validation + allow-listing).",
+      "Out-of-time attrition-risk model (logistic regression + gradient boosting), with Streamlit + Power BI (DAX) dashboards and an n8n onboarding automation."
+    ],
+    "metrics": [],
+    "techTopics": ["genai", "hr-tech", "hris", "n8n", "people-analytics", "postgresql", "power-bi", "text-to-sql"],
+    "languages": ["Python"],
+    "stars": 0,
+    "updatedAt": "2026-11-26T02:23:33Z",
+    "featured": true,
+    "order": 6,
+    "repoUrl": "https://github.com/immortalxmachine/peoplepulse",
+    "homepage": null,
+    "demoUrl": null,
+    "defaultBranch": "main",
+    "ownerAvatar": "https://avatars.githubusercontent.com/u/164671502?v=4",
+    "readme": null
+  },
+  {
+    "slug": "adpulse",
+    "name": "adpulse",
+    "title": "AdPulse",
+    "tagline": "PySpark campaign analytics — segmentation, A/B testing & BI",
+    "category": "Data",
+    "description": "PySpark campaign-analytics pipeline with K-Means segmentation, A/B testing and Excel/Power BI reporting (synthetic data)",
+    "highlights": [
+      "PySpark ELT over 2M synthetic ad-impression rows, quarantining 1.5% dirty records and computing CTR/CPA/ROAS by channel/region/month via Spark SQL.",
+      "A/B test validated with a two-proportion z-test — +11.7% conversion lift (p=0.028) — with a chi-square cross-check and power analysis.",
+      "Segmented 50K customers via RFM + K-Means (k=3, silhouette 0.45), isolating a 17K Champions cohort ($627 avg LTV)."
+    ],
+    "metrics": [
+      { "label": "Rows processed", "value": "2M" },
+      { "label": "A/B lift", "value": "+11.7%" },
+      { "label": "Customers segmented", "value": "50K" }
+    ],
+    "techTopics": ["ab-testing", "clustering", "data-analytics", "excel", "power-bi", "pyspark", "sql"],
+    "languages": ["Python", "Dockerfile"],
+    "stars": 0,
+    "updatedAt": "2026-11-26T01:56:49Z",
+    "featured": true,
+    "order": 7,
+    "repoUrl": "https://github.com/immortalxmachine/adpulse",
+    "homepage": null,
+    "demoUrl": null,
+    "defaultBranch": "main",
+    "ownerAvatar": "https://avatars.githubusercontent.com/u/164671502?v=4",
+    "readme": null
   }
 ]
