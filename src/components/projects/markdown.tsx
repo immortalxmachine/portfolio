@@ -34,6 +34,15 @@ export function Markdown({ children }: { children: string }) {
           [rehypeHighlight, { ignoreMissing: true, detect: false }],
         ]}
         components={{
+          // Shift README headings down one level so the page keeps a single
+          // <h1> (the project title). Keeps the document outline accessible.
+          /* eslint-disable @typescript-eslint/no-unused-vars -- drop `node` from react-markdown props */
+          h1: ({ node, ...p }) => <h2 {...p} />,
+          h2: ({ node, ...p }) => <h3 {...p} />,
+          h3: ({ node, ...p }) => <h4 {...p} />,
+          h4: ({ node, ...p }) => <h5 {...p} />,
+          h5: ({ node, ...p }) => <h6 {...p} />,
+          /* eslint-enable @typescript-eslint/no-unused-vars */
           a({ href, children, ...props }) {
             const external = href?.startsWith("http");
             return (

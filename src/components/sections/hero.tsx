@@ -11,11 +11,12 @@ import { Button } from "@/components/ui/button";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 
 /** Rotating typewriter effect; degrades to a simple rotation under
- *  prefers-reduced-motion (no per-character typing). */
+ *  prefers-reduced-motion (no per-character typing). All state updates happen
+ *  inside timers (never synchronously in the effect body). */
 function useTypewriter(phrases: string[]) {
   const reduce = useReducedMotion();
   const [index, setIndex] = React.useState(0);
-  const [text, setText] = React.useState(reduce ? phrases[0] : "");
+  const [typed, setTyped] = React.useState("");
   const [deleting, setDeleting] = React.useState(false);
 
   React.useEffect(() => {
@@ -24,8 +25,8 @@ function useTypewriter(phrases: string[]) {
       return () => clearInterval(id);
     }
     const current = phrases[index];
-    const done = text === current;
-    const cleared = text === "";
+    const done = typed === current;
+    const cleared = typed === "";
 
     let delay = deleting ? 45 : 85;
     if (done && !deleting) delay = 1500; // pause at full word
@@ -38,18 +39,16 @@ function useTypewriter(phrases: string[]) {
         setDeleting(false);
         setIndex((i) => (i + 1) % phrases.length);
       } else {
-        setText((t) =>
+        setTyped((t) =>
           deleting ? current.slice(0, t.length - 1) : current.slice(0, t.length + 1),
         );
       }
     }, delay);
     return () => clearTimeout(id);
-  }, [text, deleting, index, phrases, reduce]);
+  }, [typed, deleting, index, phrases, reduce]);
 
-  React.useEffect(() => {
-    if (reduce) setText(phrases[index]);
-  }, [index, phrases, reduce]);
-
+  // Under reduced motion the full phrase is shown directly (derived, not state).
+  const text = reduce ? phrases[index] : typed;
   return { text, reduce };
 }
 
