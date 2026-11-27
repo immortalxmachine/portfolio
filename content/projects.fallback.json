@@ -1,5 +1,59 @@
 [
     {
+        "slug":  "adoptiq",
+        "name":  "adoptiq",
+        "title":  "AdoptIQ",
+        "tagline":  "Customer-success analytics for a B2B SaaS platform",
+        "category":  "Data",
+        "description":  "SaaS customer-success analytics: product adoption metrics, rule-based account health score, renewal-risk flags, SLA issue tracking and weekly Excel status reports",
+        "highlights":  [
+                           "Python/SQL customer-success pipeline scoring 48 synthetic SaaS accounts from 347,756 usage events into health bands (31 Green, 13 Amber, 4 Red).",
+                           "Flagged 10 of 16 renewals due within 90 days as at-risk (282 seats) using a weighted, YAML-configurable account health score.",
+                           "Automated SLA tracking for 768 support tickets (24% breach rate), aging buckets, rule-based escalations and a weekly openpyxl status workbook."
+                       ],
+        "metrics":  [
+                        {
+                            "label":  "Usage events",
+                            "value":  "348K"
+                        },
+                        {
+                            "label":  "Accounts scored",
+                            "value":  "48"
+                        },
+                        {
+                            "label":  "SLA breach rate",
+                            "value":  "24%"
+                        }
+                    ],
+        "techTopics":  [
+                           "churn",
+                           "customer-health-score",
+                           "customer-success",
+                           "excel",
+                           "pandas",
+                           "power-bi",
+                           "product-analytics",
+                           "saas",
+                           "sql",
+                           "streamlit"
+                       ],
+        "languages":  [
+                          "Python",
+                          "Shell",
+                          "Dockerfile"
+                      ],
+        "stars":  0,
+        "updatedAt":  "2026-11-27T20:05:56Z",
+        "featured":  true,
+        "order":  8,
+        "repoUrl":  "https://github.com/immortalxmachine/adoptiq",
+        "homepage":  null,
+        "demoUrl":  null,
+        "defaultBranch":  "main",
+        "ownerAvatar":  "https://avatars.githubusercontent.com/u/164671502?v=4",
+        "readme":  null
+    },
+    {
         "slug":  "adpulse",
         "name":  "adpulse",
         "title":  "AdPulse",
@@ -96,6 +150,59 @@
         "featured":  true,
         "order":  2,
         "repoUrl":  "https://github.com/immortalxmachine/damagescan",
+        "homepage":  null,
+        "demoUrl":  null,
+        "defaultBranch":  "main",
+        "ownerAvatar":  "https://avatars.githubusercontent.com/u/164671502?v=4",
+        "readme":  null
+    },
+    {
+        "slug":  "deskmate-m365",
+        "name":  "deskmate-m365",
+        "title":  "DeskMate M365",
+        "tagline":  "Microsoft 365 IT-support RAG chatbot with multi-LLM providers",
+        "category":  "GenAI",
+        "description":  "Microsoft 365 IT-support chatbot: RAG over Microsoft Learn docs with Azure AI Foundry, Amazon Bedrock and Ollama providers, prompt versioning and LLM evaluation",
+        "highlights":  [
+                           "Microsoft 365 IT-support RAG chatbot (FastAPI, Streamlit, FAISS) over 64 Microsoft Learn articles, reaching 100% retrieval hit@1 on 30 questions.",
+                           "One LLM interface for Azure AI Foundry, Amazon Bedrock, Ollama and Hugging Face models, switchable by env var and covered by 33 offline tests.",
+                           "Retrieval confidence gate refusing 9/10 off-topic questions before any LLM call; prompt v2 raised citation accuracy from 3% to 13%."
+                       ],
+        "metrics":  [
+                        {
+                            "label":  "Retrieval hit@1",
+                            "value":  "100%"
+                        },
+                        {
+                            "label":  "MS Learn docs",
+                            "value":  "64"
+                        },
+                        {
+                            "label":  "Offline tests",
+                            "value":  "33"
+                        }
+                    ],
+        "techTopics":  [
+                           "amazon-bedrock",
+                           "azure-ai-foundry",
+                           "chatbot",
+                           "faiss",
+                           "fastapi",
+                           "langchain",
+                           "llm",
+                           "ollama",
+                           "prompt-engineering",
+                           "rag"
+                       ],
+        "languages":  [
+                          "Python",
+                          "Dockerfile"
+                      ],
+        "stars":  0,
+        "updatedAt":  "2026-11-27T20:06:02Z",
+        "featured":  true,
+        "order":  9,
+        "repoUrl":  "https://github.com/immortalxmachine/deskmate-m365",
         "homepage":  null,
         "demoUrl":  null,
         "defaultBranch":  "main",
@@ -211,6 +318,60 @@
         "readme":  null
     },
     {
+        "slug":  "migrateright",
+        "name":  "migrateright",
+        "title":  "MigrateRight",
+        "tagline":  "SAP ECC→S/4HANA master-data migration on real retail data",
+        "category":  "Data",
+        "description":  "SAP ECC to S/4HANA master-data migration case study on real Olist and Online Retail II data: profiling, rule-based cleansing, Business Partner mapping, dedup and Excel/Streamlit reconciliation",
+        "highlights":  [
+                           "Python/SQL SAP ECC→S/4HANA migration case study on real Olist and Online Retail II data, loading 16,167 of 18,330 legacy records.",
+                           "YAML address rules against Brazilian geolocation data, quarantining 1,719 records (9.38%) with reason codes and no silent drops.",
+                           "Merged 444 real duplicates with survivorship and showed location-only matching reached only 3.83% precision vs customer_unique_id."
+                       ],
+        "metrics":  [
+                        {
+                            "label":  "Legacy records",
+                            "value":  "18.3K"
+                        },
+                        {
+                            "label":  "Loaded clean",
+                            "value":  "16.2K"
+                        },
+                        {
+                            "label":  "Quarantined",
+                            "value":  "9.4%"
+                        }
+                    ],
+        "techTopics":  [
+                           "business-partner",
+                           "data-migration",
+                           "data-quality",
+                           "excel",
+                           "kaggle",
+                           "pandas",
+                           "reconciliation",
+                           "s4hana",
+                           "sap",
+                           "sql",
+                           "streamlit"
+                       ],
+        "languages":  [
+                          "Python",
+                          "Dockerfile"
+                      ],
+        "stars":  0,
+        "updatedAt":  "2026-11-27T20:06:07Z",
+        "featured":  true,
+        "order":  10,
+        "repoUrl":  "https://github.com/immortalxmachine/migrateright",
+        "homepage":  null,
+        "demoUrl":  null,
+        "defaultBranch":  "main",
+        "ownerAvatar":  "https://avatars.githubusercontent.com/u/164671502?v=4",
+        "readme":  null
+    },
+    {
         "slug":  "parcelflow",
         "name":  "parcelflow",
         "title":  "ParcelFlow",
@@ -316,6 +477,114 @@
         "readme":  null
     },
     {
+        "slug":  "retaillens-o2c",
+        "name":  "retaillens-o2c",
+        "title":  "RetailLens O2C",
+        "tagline":  "SAP S/4HANA order-to-cash analytics on 100K Olist orders",
+        "category":  "Data",
+        "description":  "SAP S/4HANA order-to-cash analytics case study on 100K real Olist retail orders: SD table mapping, SQL star schema, OTIF/lead-time KPIs, Power BI and Streamlit",
+        "highlights":  [
+                           "Mapped 98,353 real Olist e-commerce orders into SAP S/4HANA SD tables (VBAK/VBAP/LIKP/LIPS/BSAD) and a star schema of CDS-style SQL views.",
+                           "Data-quality gates over 775,547 rows, quarantining 444 inconsistent records and logging 3,288 warnings with reasons.",
+                           "SQL KPIs (CTEs, RANK, LAG): OTIF 92.9%, lead time 12.4 days, payment approval 10 hours, complaint rate 14.2%."
+                       ],
+        "metrics":  [
+                        {
+                            "label":  "Orders mapped",
+                            "value":  "98K"
+                        },
+                        {
+                            "label":  "OTIF",
+                            "value":  "92.9%"
+                        },
+                        {
+                            "label":  "Rows gated",
+                            "value":  "776K"
+                        }
+                    ],
+        "techTopics":  [
+                           "data-analytics",
+                           "dax",
+                           "kaggle",
+                           "order-to-cash",
+                           "postgresql",
+                           "power-bi",
+                           "retail-analytics",
+                           "s4hana",
+                           "sap",
+                           "sql",
+                           "streamlit"
+                       ],
+        "languages":  [
+                          "Python",
+                          "Shell",
+                          "Dockerfile"
+                      ],
+        "stars":  0,
+        "updatedAt":  "2026-11-27T20:06:13Z",
+        "featured":  true,
+        "order":  11,
+        "repoUrl":  "https://github.com/immortalxmachine/retaillens-o2c",
+        "homepage":  null,
+        "demoUrl":  null,
+        "defaultBranch":  "main",
+        "ownerAvatar":  "https://avatars.githubusercontent.com/u/164671502?v=4",
+        "readme":  null
+    },
+    {
+        "slug":  "shelfreach",
+        "name":  "shelfreach",
+        "title":  "ShelfReach",
+        "tagline":  "FMCG retail-distribution analytics + beat-route optimization",
+        "category":  "Software",
+        "description":  "FMCG retail-distribution analytics: config-driven territory/outlet/beat setup, distribution KPIs (coverage, strike rate, beat compliance), OR-Tools beat-route optimisation and manager dashboards",
+        "highlights":  [
+                           "Config-driven FMCG account setup (4 territories, 8 distributors, 600 outlets, 60 beats) with validation catching orphan outlets, beats and SKUs before load.",
+                           "Loaded 87,523 real retail sales lines into a Postgres/SQLite star schema, quarantining 8,941 bad rows (10.2%) with reasons.",
+                           "10 portable SQL reports (coverage 80%, strike rate 13%, beat compliance 82%, RANK/LAG scorecards) served via Streamlit dashboards; CI-tested on Postgres."
+                       ],
+        "metrics":  [
+                        {
+                            "label":  "Sales lines",
+                            "value":  "88K"
+                        },
+                        {
+                            "label":  "Outlets",
+                            "value":  "600"
+                        },
+                        {
+                            "label":  "Beat compliance",
+                            "value":  "82%"
+                        }
+                    ],
+        "techTopics":  [
+                           "beat-planning",
+                           "fmcg",
+                           "or-tools",
+                           "pandas",
+                           "power-bi",
+                           "retail-distribution",
+                           "route-optimization",
+                           "sales-force-automation",
+                           "sql",
+                           "streamlit"
+                       ],
+        "languages":  [
+                          "Python",
+                          "Dockerfile"
+                      ],
+        "stars":  0,
+        "updatedAt":  "2026-11-27T20:06:19Z",
+        "featured":  true,
+        "order":  12,
+        "repoUrl":  "https://github.com/immortalxmachine/shelfreach",
+        "homepage":  null,
+        "demoUrl":  null,
+        "defaultBranch":  "main",
+        "ownerAvatar":  "https://avatars.githubusercontent.com/u/164671502?v=4",
+        "readme":  null
+    },
+    {
         "slug":  "shipsense",
         "name":  "shipsense",
         "title":  "ShipSense",
@@ -365,6 +634,62 @@
         "featured":  true,
         "order":  4,
         "repoUrl":  "https://github.com/immortalxmachine/shipsense",
+        "homepage":  null,
+        "demoUrl":  null,
+        "defaultBranch":  "main",
+        "ownerAvatar":  "https://avatars.githubusercontent.com/u/164671502?v=4",
+        "readme":  null
+    },
+    {
+        "slug":  "ticketlens",
+        "name":  "ticketlens",
+        "title":  "TicketLens",
+        "tagline":  "Support-ticket NLP: intent classification \u0026 summarization",
+        "category":  "AI/ML",
+        "description":  "Support-ticket NLP benchmark: intent classification (TF-IDF, MiniLM, fine-tuned DistilBERT) and dialogue summarization (BART, Flan-T5, Llama) with FastAPI + Gradio",
+        "highlights":  [
+                           "Fine-tuned DistilBERT for 27-intent support-ticket routing, reaching 99.84% accuracy and 0.998 macro-F1 on 2,464 held-out messages in 172s on a laptop GPU.",
+                           "Benchmarked TF-IDF, frozen MiniLM embeddings and fine-tuned DistilBERT on a deduplicated, stratified split — a 1 MB TF-IDF model within 0.5 points of the transformer.",
+                           "Compared BART, Flan-T5 and a lead-2 baseline for dialogue summarization with ROUGE and BERTScore; Flan-T5-base led (ROUGE-L 0.259 vs 0.222)."
+                       ],
+        "metrics":  [
+                        {
+                            "label":  "Intent accuracy",
+                            "value":  "99.84%"
+                        },
+                        {
+                            "label":  "Macro-F1",
+                            "value":  "0.998"
+                        },
+                        {
+                            "label":  "Intents",
+                            "value":  "27"
+                        }
+                    ],
+        "techTopics":  [
+                           "distilbert",
+                           "fastapi",
+                           "gradio",
+                           "huggingface",
+                           "llm",
+                           "llm-evaluation",
+                           "nlp",
+                           "pytorch",
+                           "rouge",
+                           "summarization",
+                           "text-classification",
+                           "transformers"
+                       ],
+        "languages":  [
+                          "Python",
+                          "Shell",
+                          "Dockerfile"
+                      ],
+        "stars":  0,
+        "updatedAt":  "2026-11-27T20:06:25Z",
+        "featured":  true,
+        "order":  13,
+        "repoUrl":  "https://github.com/immortalxmachine/ticketlens",
         "homepage":  null,
         "demoUrl":  null,
         "defaultBranch":  "main",
