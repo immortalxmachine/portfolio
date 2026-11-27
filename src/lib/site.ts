@@ -3,7 +3,7 @@
 
 export function getSiteUrl(): string {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL;
-  if (explicit) return explicit.replace(/\/$/, "");
+  if (explicit) return explicit.trim().replace(/\/$/, "");
   // Vercel system env vars (set automatically in deployments).
   if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
     return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
